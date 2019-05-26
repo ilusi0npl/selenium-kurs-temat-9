@@ -1,6 +1,4 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -51,26 +49,19 @@ public class FailedLoginTests {
     @Test
     public void asUserLoginUsingValidLoginAndPassword() {
 
-        WebElement enterStoreLink = driver.findElement(By.cssSelector("#Content a"));
-        enterStoreLink.click();
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.clickOnEnterStoreLink();
 
-        WebElement signOnLink = driver.findElement(By.cssSelector("#MenuContent a[href*='signonForm']"));
-        signOnLink.click();
+        TopMenuPage topMenuPage = new TopMenuPage(driver);
+        topMenuPage.clickOnSignInLink();
 
-        WebElement usernameField = driver.findElement(By.name("username"));
-        usernameField.clear();
-        usernameField.sendKeys("j2ee");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.typeIntoUserNameField("j2ee");
+        loginPage.typeIntoPasswordField("j2ee");
+        loginPage.clickOnLoginButton();
+        FooterPage footerPage = new FooterPage(driver);
 
-        WebElement passwordField = driver.findElement(By.name("password"));
-        passwordField.clear();
-        passwordField.sendKeys("j2ee");
-
-        WebElement signOnButton = driver.findElement(By.name("signon"));
-        signOnButton.click();
-
-        WebElement bannerAfterLoginLogo = driver.findElement(By.cssSelector("#Banner img[src*='dog']"));
-
-        assertTrue(bannerAfterLoginLogo.isDisplayed());
+        assertTrue(footerPage.isBannerAfterLoginDisplayed());
     }
 
     @AfterMethod
