@@ -11,18 +11,15 @@ public class PositiveLoginTests extends TestBase {
     public void asUserLoginUsingValidLoginAndPassword() {
 
         LandingPage landingPage = new LandingPage();
-        landingPage.clickOnEnterStoreLink();
+        boolean isBannerAfterLoginDisplayed = landingPage
+                .clickOnEnterStoreLink()
+                .clickOnSignInLink()
+                .typeIntoUserNameField("j2ee")
+                .typeIntoPasswordField("j2ee")
+                .clickOnLoginButton()
+                .isBannerAfterLoginDisplayed();
 
-        TopMenuPage topMenuPage = new TopMenuPage();
-        topMenuPage.clickOnSignInLink();
-
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeIntoUserNameField("j2ee");
-        loginPage.typeIntoPasswordField("j2ee");
-        loginPage.clickOnLoginButton();
-        FooterPage footerPage = new FooterPage();
-
-        assertTrue(footerPage.isBannerAfterLoginDisplayed());
+        assertTrue(isBannerAfterLoginDisplayed);
     }
 
 }
