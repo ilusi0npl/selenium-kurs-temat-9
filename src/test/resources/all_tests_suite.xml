@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="All Pet Store Tests">
+
+    <test name="Negative Login Tests">
+        <classes>
+            <class name="tests.FailedLoginTests"/>
+        </classes>
+    </test>
+
+    <test name="Positive Login Tests">
+        <classes>
+            <class name="tests.PositiveLoginTests"/>
+        </classes>
+    </test>
+
+</suite>
