@@ -1,12 +1,12 @@
 package driver.manager;
 
-import driver.BrowserType;
+import configuration.LocalWebDriverProperties;
 import driver.BrowserFactory;
+import driver.BrowserType;
 import org.openqa.selenium.WebDriver;
 
 public class DriverManager {
 
-    private static final BrowserType BROWSER_TYPE = BrowserType.IE;
     private static WebDriver driver;
 
     private DriverManager() {
@@ -15,7 +15,7 @@ public class DriverManager {
     public static WebDriver getWebDriver() {
 
         if (driver == null) {
-            driver = BrowserFactory.getBrowser(BROWSER_TYPE);
+            driver = BrowserFactory.getBrowser(LocalWebDriverProperties.getLocalBrowser());
         }
 
         return driver;
@@ -23,7 +23,7 @@ public class DriverManager {
 
     public static void disposeDriver() {
         driver.close();
-        if (!BROWSER_TYPE.equals(BrowserType.FIREFOX)){
+        if (!LocalWebDriverProperties.getLocalBrowser().equals(BrowserType.FIREFOX)){
             driver.quit();
         }
         driver = null;
