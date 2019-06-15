@@ -9,25 +9,37 @@ import static driver.BrowserType.FIREFOX;
 
 public class DriverManager {
 
-    private static WebDriver driver;
+    //Utworzenie zmiennej webDriverThreadLocal
+    private static ThreadLocal<WebDriver> webDriverThreadLocal = new ThreadLocal<>();
 
     private DriverManager() {
     }
 
     public static WebDriver getWebDriver() {
 
-        if (driver == null) {
-            driver = new BrowserFactory(getBrowserToRun(), getIsRemoteRun()).getBrowser();
+        //Sprawdzenie czy wartość zmiennej WebDrivera dla danego wątku jest nullem
+        if (webDriverThreadLocal.get() == null) {
+
+            //Wywołanie metody getBrowser() z klasy BrowserFactory zwraca instancję WebDrivera, który następnie jest
+            // dodana do puli instancji klasy ThreadLocal za pomocą metody set()
+            webDriverThreadLocal.set(new BrowserFactory(getBrowserToRun(), getIsRemoteRun()).getBrowser());
         }
 
-        return driver;
+        //Zwrócenie instancji WebDrivera dla danego wątku
+        return webDriverThreadLocal.get();
     }
 
     public static void disposeDriver() {
-        driver.close();
+
+        //Wywołanie metody close() z klasy WebDriver dla danego wątku
+        webDriverThreadLocal.get().close();
         if (!getBrowserToRun().equals(FIREFOX)) {
-            driver.quit();
+
+            //Wywołanie metody quit() z klasy WebDriver dla danego wątku
+            webDriverThreadLocal.get().quit();
         }
-        driver = null;
+
+        //Wywołanie metody remove() z klasy ThreadLocal dla danego wątku w celu usunięcia WebDrivera dla aktualnego wątku
+        webDriverThreadLocal.remove();
     }
 }
