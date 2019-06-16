@@ -2,6 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="All Pet Store Tests" parallel="tests" thread-count="2">
 
+    <listeners>
+        <listener class-name="utils.testng.listeners.TestListener"/>
+    </listeners>
+
     <test name="Negative Login Tests">
         <parameter name="browser" value="FIREFOX"/>
         <classes>
