@@ -56,13 +56,14 @@
 
     <build>
         <plugins>
-            <!--Plugin Allure do generowania raportów-->
+            <!--Plugin do Allure do generowania raportów-->
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>2.9</version>
                 <configuration>
                     <reportVersion>2.6.0</reportVersion>
+                    <propertiesFilePath>${basedir}/src/main/resources/allure.properties</propertiesFilePath>
                 </configuration>
             </plugin>
             <plugin>
@@ -98,11 +99,10 @@
                 <version>3.7.0</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
-                    <source>1.9</source>
-                    <target>1.9</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
