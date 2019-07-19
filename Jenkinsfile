@@ -4,17 +4,17 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-        stage('Build') {
+        stage('Build test code') {
             steps {
                 sh 'mvn clean install -DskipTests'
             }
         }
-        stage('Test') {
+        stage('Execute test') {
             steps {
                 sh 'mvn test'
             }
         }
-        stage('Allure report generation') {
+        stage('Generate allure report') {
             steps {
                 script {
                     allure([
