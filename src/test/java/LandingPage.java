@@ -13,6 +13,5 @@ public class LandingPage {
     public void clickOnEnterStoreLink(){
         WebElement enterStoreLink = driver.findElement(By.cssSelector("#Content a"));
         enterStoreLink.click();
-
     }
 }
