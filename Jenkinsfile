@@ -14,29 +14,21 @@ pipeline {
         stage('Execute test') {
             steps {
                 sh 'mvn test'
+                sh 'docker-compose down'
             }
         }
     }
     post {
         always {
-            stage('Generate allure report') {
-                steps {
-                    script {
-                        allure([
-                                includeProperties: false,
-                                jdk              : '',
-                                properties       : [],
-                                reportBuildPolicy: 'ALWAYS',
-                                results          : [[path: 'target/allure-results']]
-                        ])
-                    }
-                }
+            script {
+                allure([
+                        includeProperties: false,
+                        jdk              : '',
+                        properties       : [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results          : [[path: 'target/allure-results']]
+                ])
             }
-            stage('Clean-up docker grid') {
-                steps {
-                    sh 'docker-compose down'
-                }
             }
         }
     }
-}
