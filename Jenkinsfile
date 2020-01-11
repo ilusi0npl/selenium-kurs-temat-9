@@ -13,12 +13,7 @@ pipeline {
         }
         stage('Execute test') {
             steps {
-                sh 'mvn -Dgrid.url=something.com test'
-            }
-        }
-        stage('Destroy selenium docker') {
-            steps {
-                sh 'docker-compose down'
+                sh 'mvn test'
             }
         }
         stage('Generate allure report') {
@@ -34,5 +29,10 @@ pipeline {
                 }
             }
         }
+            post {
+                always {
+                    sh 'docker-compose down'
+                }
+            }
     }
 }
