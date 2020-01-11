@@ -6,9 +6,19 @@ pipeline {
                 sh 'mvn clean install -DskipTests'
             }
         }
+        stage('Run selenium grid') {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
         stage('Execute test') {
             steps {
-                sh 'mvn test'
+                sh 'mvn -Dgrid.url=something.com test'
+            }
+        }
+        stage('Destroy selenium docker') {
+            steps {
+                sh 'docker-compose down'
             }
         }
         stage('Generate allure report') {
