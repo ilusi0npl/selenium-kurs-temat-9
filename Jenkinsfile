@@ -29,6 +29,6 @@ pipeline {
                         results          : [[path: 'target/allure-results']]
                 ])
             }
-            }
         }
     }
+}
