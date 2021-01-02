@@ -4,7 +4,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
@@ -22,7 +22,7 @@ public class FailedLoginTests {
         driver = new ChromeDriver();
 
         //Ustawienie Implicit Wait na 10 sekund
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         //Przejśćie do strony sklepu
         driver.navigate().to("http://przyklady.javastart.pl/jpetstore/");
