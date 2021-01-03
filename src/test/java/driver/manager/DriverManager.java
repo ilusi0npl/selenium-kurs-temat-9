@@ -20,7 +20,7 @@ public class DriverManager {
         return driver;
     }
 
-    public static void disposeDriver(){
+    public static void disposeDriver() {
         driver.close();
         driver.quit();
         driver = null;
