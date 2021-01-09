@@ -10,7 +10,7 @@
     <!--Dodatkowa nowa sekcja properties. Zawiera ona wersje dla biblioteki aspectjweaver-->
     <!--Sekcja properties definiuje parametry, które są używane w wielu miejsach np. ${aspectj.version}-->
     <properties>
-        <aspectj.version>1.9.2</aspectj.version>
+        <aspectj.version>1.9.5</aspectj.version>
     </properties>
 
     <dependencies>
@@ -34,23 +34,23 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.10.0</version>
+            <version>2.13.8</version>
         </dependency>
         <!--Stare zależności projektowe takie jak Selenium czy TestNG-->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>4.0.0-alpha-7</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.0.0</version>
+            <version>7.3.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.10.0</version>
+            <version>2.14.0</version>
         </dependency>
     </dependencies>
 
@@ -62,7 +62,7 @@
                 <artifactId>allure-maven</artifactId>
                 <version>2.10.0</version>
                 <configuration>
-                    <reportVersion>2.6.0</reportVersion>
+                    <reportVersion>2.10.0</reportVersion>
                     <propertiesFilePath>${basedir}/src/main/resources/allure.properties</propertiesFilePath>
                 </configuration>
             </plugin>
@@ -96,7 +96,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                     <source>1.8</source>
