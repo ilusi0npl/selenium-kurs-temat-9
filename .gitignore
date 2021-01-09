@@ -25,5 +25,6 @@ hs_err_pid*
 #Other
 .idea
 *.iml
-/target/
+/target
 .allure
+*.orig
