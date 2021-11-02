@@ -20,6 +20,9 @@ public class LoginPage extends BasePage {
     @FindBy(css = "#Content ul[class='messages'] li")
     private WebElement messageLabel;
 
+    @FindBy(css = "area[alt='Fish']")
+    private WebElement btnFishImage;
+
     @Step("Type into User Name Field {username}")
     public LoginPage typeIntoUserNameField(String username) {
         WaitForElement.waitUntilElementIsVisible(usernameField);
@@ -51,4 +54,10 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    public FishListPage clickOnFishImageButton() {
+        WaitForElement.waitUntilElementIsVisible(btnFishImage);
+        btnFishImage.click();
+        logger.info("Clicked on fish image");
+        return new FishListPage();
+    }
 }
