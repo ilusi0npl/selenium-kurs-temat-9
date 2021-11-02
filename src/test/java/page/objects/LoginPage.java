@@ -1,6 +1,7 @@
 package page.objects;
 
 import driver.manager.DriverManager;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -19,6 +20,9 @@ public class LoginPage {
 
     @FindBy(css = "#Content ul[class='messages'] li")
     private WebElement messageLabel;
+
+    @FindBy(css = "area[alt='Fish']")
+    private WebElement btnFishImage;
 
     public LoginPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
@@ -43,4 +47,7 @@ public class LoginPage {
         return warningText;
     }
 
+    public void clickOnFishImageButton() {
+        btnFishImage.click();
+    }
 }
