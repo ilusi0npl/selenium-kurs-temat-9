@@ -1,14 +1,19 @@
 package driver.listeners;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.events.EventFiringDecorator;
 
 public class WebDriverEventListenerRegistrar {
 
     public synchronized static WebDriver registerWebDriverEventListener(WebDriver driver) {
-        EventFiringWebDriver eventFiringWebDriver = new EventFiringWebDriver(driver);
+
         DriverEventListener driverEventListener = new DriverEventListener();
-        return eventFiringWebDriver.register(driverEventListener);
+
+        // Utworzenie obiektu EventFiringDecorator, który to w konstruktorze przymuje stworzoną przez nas klasę DriverEventListener
+        EventFiringDecorator eventFiringDecorator = new EventFiringDecorator(driverEventListener);
+
+        // W ramach metody decorate "dekorujemy" stworzony poprzednio przez WebDrivera
+        return eventFiringDecorator.decorate(driver);
     }
 
 }
