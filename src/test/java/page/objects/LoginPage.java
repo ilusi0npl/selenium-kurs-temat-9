@@ -24,6 +24,9 @@ public class LoginPage {
     @FindBy(css = "#Content ul[class='messages'] li")
     private WebElement messageLabel;
 
+    @FindBy(css = "area[alt='Fish']")
+    private WebElement btnFishImage;
+
     public LoginPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
@@ -55,4 +58,10 @@ public class LoginPage {
         return warningText;
     }
 
+    public FishListPage clickOnFishImageButton() {
+        WaitForElement.waitUntilElementIsVisible(btnFishImage);
+        btnFishImage.click();
+        logger.info("Clicked on fish image");
+        return new FishListPage();
+    }
 }
