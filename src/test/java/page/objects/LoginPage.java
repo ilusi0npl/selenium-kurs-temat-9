@@ -57,7 +57,7 @@ public class LoginPage extends BasePage {
     public FishListPage clickOnFishImageButton() {
         WaitForElement.waitUntilElementIsVisible(btnFishImage);
         btnFishImage.click();
-        logger.info("Clicked on fish image");
+        log().info("Clicked on fish image");
         return new FishListPage();
     }
 }
