@@ -9,6 +9,7 @@ import static driver.BrowserType.FIREFOX;
 
 public class DriverManager {
 
+    private static final BrowserType BROWSER_TYPE = BrowserType.CHROME;
     private static WebDriver driver;
 
     private DriverManager() {
