@@ -23,8 +23,6 @@ public class LoginPage {
     @FindBy(css = "area[alt='Fish']")
     private WebElement btnFishImage;
 
-    private WebDriver driver;
-
     public LoginPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
