@@ -10,9 +10,9 @@
     <!--Dodatkowa nowa sekcja properties. Zawiera ona wersje dla biblioteki aspectjweaver-->
     <!--Sekcja properties definiuje parametry, które są używane w wielu miejsach np. ${aspectj.version}-->
     <properties>
-        <aspectj.version>1.9.5</aspectj.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <aspectj.version>1.9.20</aspectj.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -36,23 +36,23 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.16.0</version>
+            <version>2.23.0</version>
         </dependency>
         <!--Stare zależności projektowe takie jak Selenium czy TestNG-->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.6.0</version>
+            <version>4.11.0</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.6.1</version>
+            <version>7.8.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.14.0</version>
+            <version>2.17.1</version>
         </dependency>
     </dependencies>
 
@@ -62,7 +62,7 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
+                <version>2.12.0</version>
                 <configuration>
                     <reportVersion>2.10.0</reportVersion>
                     <propertiesFilePath>${basedir}/src/main/resources/allure.properties</propertiesFilePath>
@@ -71,7 +71,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <version>3.1.2</version>
                 <configuration>
                     <!--Nowy parametr określający gdzie maven-surefire-plugin ma zapisywać wyniki z testów-->
                     <systemPropertyVariables>
@@ -98,11 +98,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.10.1</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
-                    <source>11</source>
-                    <target>11</target>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
         </plugins>
