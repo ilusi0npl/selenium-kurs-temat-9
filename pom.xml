@@ -10,7 +10,7 @@
     <!--Dodatkowa nowa sekcja properties. Zawiera ona wersje dla biblioteki aspectjweaver-->
     <!--Sekcja properties definiuje parametry, które są używane w wielu miejsach np. ${aspectj.version}-->
     <properties>
-        <aspectj.version>1.9.5</aspectj.version>
+        <aspectj.version>1.9.20</aspectj.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
