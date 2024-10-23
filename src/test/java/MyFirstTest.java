@@ -16,8 +16,6 @@ public class MyFirstTest {
 
     @BeforeMethod
     public void beforeTest() {
-        //Ustawienie ścieżki do WebDrivera Chrome
-        System.setProperty("webdriver.chrome.driver", "C:/drivers/chromedriver.exe");
 
         //Inicjalizajca ChromeDriver
         driver = new ChromeDriver();
