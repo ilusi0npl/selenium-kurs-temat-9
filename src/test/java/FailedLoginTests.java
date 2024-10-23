@@ -15,8 +15,6 @@ public class FailedLoginTests {
 
     @BeforeMethod
     public void beforeTest() {
-        //Ustawienie ścieżki do WebDrivera Chrome
-        System.setProperty("webdriver.chrome.driver", "C:/drivers/chromedriver.exe");
 
         //Inicliazjacja ChromeDriver
         driver = new ChromeDriver();
