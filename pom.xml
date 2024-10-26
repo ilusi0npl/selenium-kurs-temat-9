@@ -69,6 +69,7 @@
                 <version>2.14.0</version>
                 <configuration>
                     <reportVersion>2.14.0</reportVersion>
+                    <propertiesFilePath>${basedir}/src/main/resources/allure.properties</propertiesFilePath>
                 </configuration>
             </plugin>
             <plugin>
