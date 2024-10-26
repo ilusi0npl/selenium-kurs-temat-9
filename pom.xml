@@ -11,9 +11,23 @@
     <!--Sekcja properties definiuje parametry, które są używane w wielu miejsach np. ${aspectj.version}-->
     <properties>
         <aspectj.version>1.9.20.1</aspectj.version>
-        <maven.compiler.source>23</maven.compiler.source>
-        <maven.compiler.target>23</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <allure.version>2.24.0</allure.version>
     </properties>
+
+    <!--    Dodatkowa sekcja w pom, potrzebne do poprawnego działania Allura-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-bom</artifactId>
+                <version>${allure.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!--Poniżej biblioteki konieczne do poprawnego działania Allure framework-->
@@ -26,7 +40,7 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.29.0</version>
+            <version>${allure.version}</version>
         </dependency>
         <!--Stare zależności projektowe takie jak Selenium czy TestNG-->
         <dependency>
@@ -90,8 +104,7 @@
                 <version>3.13.0</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
-                    <source>23</source>
-                    <target>23</target>
+                    <release>21</release>
                 </configuration>
             </plugin>
         </plugins>
