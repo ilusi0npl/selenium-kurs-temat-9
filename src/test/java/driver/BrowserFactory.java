@@ -1,14 +1,13 @@
 package driver;
 
-import configuration.LocalWebDriverProperties;
 import configuration.TestRunProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -54,11 +53,11 @@ public class BrowserFactory {
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
                     desiredCapabilities.merge(firefoxOptions);
                     return getRemoteWebDriver(desiredCapabilities);
-                case IE:
+                case EDGE:
 
-                    //Do wyboru przeglądarki InternetExplorer używamy klasy InternetExplorerOptions
-                    InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
-                    desiredCapabilities.merge(internetExplorerOptions);
+                    //Do wyboru przeglądarki Edge używamy klasy EdgeOptions
+                    EdgeOptions edgeOptions = new EdgeOptions();
+                    desiredCapabilities.merge(edgeOptions);
                     return getRemoteWebDriver(desiredCapabilities);
                 default:
                     throw new IllegalStateException(MESSAGE_UNKNOWN_BROWSER);
@@ -70,14 +69,11 @@ public class BrowserFactory {
             //Wybór przeglądarki zdalnej w zależności od wartości pola browserType. Analogicznie jak wyżej
             switch (browserType) {
                 case CHROME:
-                    System.setProperty("webdriver.chrome.driver", LocalWebDriverProperties.getChromeWebDriverLocation());
                     return new ChromeDriver();
                 case FIREFOX:
-                    System.setProperty("webdriver.gecko.driver", LocalWebDriverProperties.getFirefoxWebDriverLocation());
                     return new FirefoxDriver();
-                case IE:
-                    System.setProperty("webdriver.ie.driver", LocalWebDriverProperties.getInternetExplorerWebDriverLocation());
-                    return new InternetExplorerDriver();
+                case EDGE:
+                    return new EdgeDriver();
                 default:
                     throw new IllegalStateException(MESSAGE_UNKNOWN_BROWSER);
             }
